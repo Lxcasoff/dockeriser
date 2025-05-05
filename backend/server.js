@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
-app.use(cors()); // ✅ ici c'est OK
+app.use(cors());
 
 const pool = new Pool({
   host: process.env.DB_HOST,
