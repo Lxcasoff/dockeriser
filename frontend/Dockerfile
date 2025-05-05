@@ -1,0 +1,8 @@
+FROM node:20
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
+RUN npm install -g serve
+EXPOSE 5173
+CMD ["serve", "-s", "dist"]
+
