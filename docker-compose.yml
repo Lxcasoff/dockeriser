@@ -1,4 +1,5 @@
-version: '3.8'
+version: "3.8"
+
 services:
   frontend:
     build: ./frontend
@@ -6,30 +7,37 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - tp1_net
 
   backend:
     build: ./backend
     ports:
       - "3001:3001"
-    environment:
-      - DB_HOST=db
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=mydb
-    depends_on:
-      - db
+    networks:
+      - tp1_net
 
   db:
     image: postgres:15
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: mydb
-    ports:
-      - "5432:5432"
+    volumes:
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - tp1_net
 
   websocket:
     build: ./websocket
     ports:
       - "5555:5555"
+    networks:
+      - tp1_net
+
+networks:
+  tp1_net:
+    driver: bridge
 
