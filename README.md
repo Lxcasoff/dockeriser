@@ -75,7 +75,7 @@ chmod +x run.sh
 
 ## ✒️ Auteurs
 
-- @LXcasoff
+- @Lxcasoff
 - @ChuisJu 
 - @AdarLab7410
 ---
