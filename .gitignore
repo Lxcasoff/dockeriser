@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+.env
+dist/
+*.log
+
+# MacOS
+.DS_Store
+
+# Vite
+.vite/
+
+# Docker
+**/docker-volume/
