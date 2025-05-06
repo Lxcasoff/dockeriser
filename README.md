@@ -77,7 +77,7 @@ Interface responsive type "cards" avec Bootstrap :
 
 ```bash
 # Étapes :
-git clone https://github.com/ChuisJu/dockeriser.git
+git clone https://github.com/Lxcasoff/dockeriser.git
 cd TP1
 chmod +x run.sh
 ./run.sh
