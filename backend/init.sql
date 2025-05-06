@@ -9,16 +9,16 @@ CREATE TABLE IF NOT EXISTS posts (
 INSERT INTO posts (title, content, image_url) VALUES
 (
   'Comment Docker change la donne pour les devs',
-  'Découvrez pourquoi Docker est devenu un outil incontournable pour le développement moderne. On vous montre comment l’utiliser efficacement dans vos projets.',
-  'https://via.placeholder.com/400x200?text=Docker'
+  'Découvrez pourquoi Docker est devenu un outil incontournable...',
+  '/images/docker-article.jpg'
 ),
 (
   'PostgreSQL : astuces de performance',
-  'Voici 5 astuces pratiques pour optimiser vos requêtes SQL et tirer le meilleur de PostgreSQL même sur des bases de données volumineuses.',
-  'https://via.placeholder.com/400x200?text=PostgreSQL'
+  'Voici 5 astuces pratiques pour optimiser vos requêtes SQL...',
+  '/images/postgres-performance.jpg'
 ),
 (
   'Pourquoi adopter une stack React + Vite',
-  'On décortique pourquoi cette stack séduit les développeurs frontend : rapidité, simplicité, et une DX au top.',
-  'https://via.placeholder.com/400x200?text=React+Vite'
+  'On décortique pourquoi cette stack séduit les développeurs...',
+  '/images/react-vite.jpg'
 );
