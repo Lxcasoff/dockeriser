@@ -1,4 +1,4 @@
-# 🐳 TP1 — Blog Fullstack Dockerisé (React, Express, PostgreSQL, WebSocket)
+# 🐳 TP1 — Blog Fullstack Dockerisé (React, Node, PostgreSQL, WebSocket)
 
 Ce projet est un **TP complet de développement d’une application web fullstack dockerisée**, réalisé dans le cadre du Master Cybersécurité à l’IPSSI.  
 L'objectif était de construire un **blog interactif**, connecté à une base de données, avec notifications en temps réel.
@@ -10,7 +10,7 @@ L'objectif était de construire un **blog interactif**, connecté à une base de
 | Couche      | Stack choisie | Raison du choix |
 |-------------|---------------|-----------------|
 | Frontend    | React + Bootstrap | Pour la rapidité de développement, la modularité, et un rendu propre sans surcharge de configuration (contrairement à Tailwind) |
-| Backend     | Express.js    | Léger, rapide à mettre en place, parfaitement adapté aux API REST |
+| Backend     | Node.js    | Léger, rapide à mettre en place, parfaitement adapté aux API REST |
 | Base de données | PostgreSQL | Robuste, open-source, et facilement intégrable avec Docker |
 | Communication temps réel | ZeroMQ (WebSocket) | Pour démontrer les capacités de push serveur-frontend |
 | Conteneurisation | Docker + Docker Compose | Simplifie le déploiement et la gestion des services |
@@ -21,7 +21,7 @@ L'objectif était de construire un **blog interactif**, connecté à une base de
 
 ```
 TP1/
-├── backend/        # Express.js + PostgreSQL
+├── backend/        # Node.js + PostgreSQL
 ├── frontend/       # React + Bootstrap (Vite)
 ├── websocket/      # Serveur WebSocket avec ZeroMQ
 ├── docker-compose.yml
