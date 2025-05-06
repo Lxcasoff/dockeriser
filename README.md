@@ -41,6 +41,20 @@ TP1/
 
 ---
 
+## 🔐 Sécurisation du backend
+
+Dans une logique de sécurité by design, plusieurs protections ont été mises en place côté serveur Express :
+
+- `helmet` : ajoute des headers HTTP de sécurité contre les attaques XSS, sniffing, clickjacking...
+- `cors` : restreint les origines autorisées à `http://localhost:3000` uniquement
+- `express-rate-limit` : limite les requêtes à 100 par 15 minutes et par IP pour réduire les risques de DoS
+- `dotenv` : variables sensibles isolées dans un fichier `.env`
+- `express.static` : permet de servir des images locales de manière contrôlée (dans `/images`)
+
+Ces mesures permettent de durcir la surface d’attaque du backend et anticipent les risques classiques côté API REST.
+
+---
+
 ## ⚠️ Problèmes rencontrés
 
 - **TailwindCSS :** trop verbeux et peu intuitif → remplacé par Bootstrap pour rapidité et clarté.
