@@ -1,11 +1,29 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { Pool } = require('pg');
+const path = require('path');
 
 const app = express();
-app.use(cors());
 
+// 🛡️ Sécurité
+app.use(helmet()); // Headers HTTP sécurisés
+app.use(cors({ origin: ['http://localhost:3000'] })); // CORS restreint
+app.use(express.json());
+
+// 🚫 Limitation des requêtes
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // max 100 requêtes par IP
+});
+app.use(limiter);
+
+// 📁 Exposition des images statiques si tu as des images locales
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+// 🔌 Connexion PostgreSQL
 const pool = new Pool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -13,14 +31,16 @@ const pool = new Pool({
   database: process.env.DB_NAME
 });
 
+// 📰 Endpoint pour les articles
 app.get('/api/posts', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM posts ORDER BY created_at DESC');
     res.json(result.rows);
   } catch (err) {
+    console.error('❌ Erreur DB:', err);
     res.status(500).json({ error: 'DB query failed' });
   }
 });
 
-app.listen(3001, () => console.log('API listening on port 3001'));
-
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`✅ Backend listening on http://localhost:${PORT}`));
