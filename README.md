@@ -10,7 +10,7 @@ L'objectif était de construire un **blog interactif**, connecté à une base de
 | Couche      | Stack choisie | Raison du choix |
 |-------------|---------------|-----------------|
 | Frontend    | React + TypeScript + Bootstrap | Pour la rapidité de développement, la modularité, et un rendu propre sans surcharge de configuration (contrairement à Tailwind) |
-| Backend     | Express.js    | Léger, rapide à mettre en place, parfaitement adapté aux API REST |
+| Backend     | Node.js    | Léger, rapide à mettre en place, parfaitement adapté aux API REST |
 | Base de données | PostgreSQL | Robuste, open-source, et facilement intégrable avec Docker |
 | Communication temps réel | ZeroMQ (WebSocket) | Pour démontrer les capacités de push serveur-frontend |
 | Conteneurisation | Docker + Docker Compose | Simplifie le déploiement et la gestion des services |
