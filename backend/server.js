@@ -10,7 +10,8 @@ const app = express();
 
 // 🛡️ Sécurité
 app.use(helmet()); // Headers HTTP sécurisés
-app.use(cors({ origin: ['http://localhost:3000'] })); // CORS restreint
+// Autoriser toutes les origines pour CORS (à ajuster en production)
+app.use(cors());
 app.use(express.json());
 
 // 🚫 Limitation des requêtes
@@ -40,6 +41,11 @@ app.get('/api/posts', async (req, res) => {
     console.error('❌ Erreur DB:', err);
     res.status(500).json({ error: 'DB query failed' });
   }
+});
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
 });
 
 const PORT = process.env.PORT || 3001;

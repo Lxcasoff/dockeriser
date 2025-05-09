@@ -16,13 +16,19 @@ export default function App() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPostTitle, setNewPostTitle] = useState<string | null>(null);
 
+  // Détection automatique de l'URL du backend et du WebSocket
+  const hostname = window.location.hostname;
+  const protocol = window.location.protocol;
+  const API_URL = `${protocol}//${hostname}:3001`;
+  const WS_URL = `${protocol === 'https:' ? 'wss:' : 'ws:'}//${hostname}:5555`;
+
   useEffect(() => {
-    fetch('http://localhost:3001/api/posts')
+    fetch(`${API_URL}/api/posts`)
       .then(res => res.json())
       .then(setPosts);
 
     // WebSocket pour recevoir les nouveaux articles
-    const ws = new WebSocket('ws://localhost:5555');
+    const ws = new WebSocket(WS_URL);
 
     ws.onmessage = (event) => {
       const post: Post = JSON.parse(event.data);
