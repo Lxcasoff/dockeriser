@@ -1,6 +1,6 @@
-# 🐳 TP1 — Blog Fullstack Dockerisé (React, Node, PostgreSQL, WebSocket)
+# 🐳 Blog Fullstack Dockerisé (React, Node, PostgreSQL, WebSocket)
 
-Ce projet est un **TP complet de développement d’une application web fullstack dockerisée**, réalisé dans le cadre du Master Cybersécurité à l’IPSSI.  
+Ce projet est une **application web fullstack dockerisée**, réalisé dans le cadre du Master Cybersécurité à l’IPSSI.  
 L'objectif était de construire un **blog interactif**, connecté à une base de données, avec notifications en temps réel.
 
 ---
